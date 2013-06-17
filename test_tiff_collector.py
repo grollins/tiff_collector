@@ -4,6 +4,7 @@ import random
 import shutil
 import glob
 import fnmatch
+import subfolder_tiff_collector
 
 @nose.tools.istest
 def tiff_files_copied_from_subdirs_to_execution_dir():
@@ -16,7 +17,7 @@ def tiff_files_copied_from_subdirs_to_execution_dir():
     os.chdir(temp_dir_path)
 
     # 3. run the script
-    execfile('subfolder_tiff_collector.py')
+    subfolder_tiff_collector.main()
 
     # 4. check that the tif files have been copied
     tifs_in_exec_dir = glob.glob('*.tif')
@@ -48,7 +49,7 @@ def tiff_files_not_copied_from_subsubdirs_to_execution_dir():
     os.chdir(temp_dir_path)
 
     # 3. run the script
-    execfile('subfolder_tiff_collector.py')
+    subfolder_tiff_collector.main()
 
     # 4. check that the tif files have been copied
     tifs_in_exec_dir = glob.glob('*.tif')
