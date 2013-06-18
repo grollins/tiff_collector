@@ -4,7 +4,7 @@ import random
 import shutil
 import glob
 import fnmatch
-import subfolder_tiff_collector
+import subdir_tiff_collector
 
 @nose.tools.istest
 def tiff_files_copied_from_subdirs_to_execution_dir():
@@ -13,11 +13,11 @@ def tiff_files_copied_from_subdirs_to_execution_dir():
 
     # 2. copy test data and tiff script to test directory
     shutil.copytree('test_data', temp_dir_path)
-    shutil.copy('subfolder_tiff_collector.py', temp_dir_path)
+    shutil.copy('subdir_tiff_collector.py', temp_dir_path)
     os.chdir(temp_dir_path)
 
     # 3. run the script
-    subfolder_tiff_collector.main()
+    subdir_tiff_collector.main()
 
     # 4. check that the tif files have been copied
     tifs_in_exec_dir = glob.glob('*.tif')
@@ -45,11 +45,11 @@ def tiff_files_not_copied_from_subsubdirs_to_execution_dir():
 
     # 2. copy test data and tiff script to test directory
     shutil.copytree('test_data2', temp_dir_path)
-    shutil.copy('subfolder_tiff_collector.py', temp_dir_path)
+    shutil.copy('subdir_tiff_collector.py', temp_dir_path)
     os.chdir(temp_dir_path)
 
     # 3. run the script
-    subfolder_tiff_collector.main()
+    subdir_tiff_collector.main()
 
     # 4. check that the tif files have been copied
     tifs_in_exec_dir = glob.glob('*.tif')
