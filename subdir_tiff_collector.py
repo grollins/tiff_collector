@@ -7,7 +7,8 @@ import os
 import fnmatch
 import shutil
 
-CUTOFF_DEPTH = 1  # won't copy files from subdirs deeper than this value
+CUTOFF_DEPTH = 2  # won't copy files from subdirs deeper than this value
+TEST_MODE = False
 
 def copy_tiffs_from_subdirs_to_exec_dir(noisy=False):
     """
@@ -82,6 +83,13 @@ def make_prefix_list(dirpath):
     return prefix_list
 
 def main():
+    if TEST_MODE:
+        pass
+    else:
+        __location__ = os.path.realpath(
+                        os.path.join(os.getcwd(), os.path.dirname(sys.argv[0])))
+        os.chdir(__location__)
+        print os.getcwd()
     copy_tiffs_from_subdirs_to_exec_dir(noisy=True)
 
 if __name__ == '__main__':
