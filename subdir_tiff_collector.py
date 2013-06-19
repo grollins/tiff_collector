@@ -8,7 +8,7 @@ import fnmatch
 import shutil
 
 CUTOFF_DEPTH = 2  # won't copy files from subdirs deeper than this value
-TEST_MODE = False
+TEST_MODE = True  # if running tests with nosetests, set to True
 
 def copy_tiffs_from_subdirs_to_exec_dir(noisy=False):
     """
