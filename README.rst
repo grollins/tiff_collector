@@ -20,13 +20,6 @@ Currently tiff_collector consists of the following files and directories:
   test_tiff_collector.py
     a few simple test scenarios
 
-Web sites
----------
-
-Binary versions of the script are available at
-    http://geoffrollins.com/code.html
-
-
 License information
 -------------------
 
